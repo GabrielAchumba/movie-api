@@ -13,7 +13,7 @@ namespace MovieAPI.Controllers
             _context = context;
         }
 
-        [HttpGet]
+        [HttpGet("fetch")]
         public async Task<IEnumerable<SearchModel>> Get()
         {
             return await _context.SearchModels.ToListAsync();
@@ -32,7 +32,7 @@ namespace MovieAPI.Controllers
             return Ok(searchResponse);
         }
 
-        [HttpPost]
+        [HttpPost("store")]
         public async Task<IActionResult> Post(SearchModel searchModel)
         {
             _context.Add(searchModel);
